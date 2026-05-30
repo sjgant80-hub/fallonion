@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>fallonion · sovereign Tor hidden service · ◊·κ=1</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{--ox:#8b1a1a;--ox-dim:#5a1010;--brass:#b8974a;--brass-dim:#7a6228;--cream:#c4bfb2;--cream-dim:#7d7a72;--void:#0b0a0f;--void-2:#14121a;--void-3:#1e1b25;--green:#4caf50;--red:#e53935}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--void);color:var(--cream);font-family:"IBM Plex Mono",ui-monospace,Consolas,monospace;font-size:14px;line-height:1.65;min-height:100vh}
+body{background-image:radial-gradient(at 0% 0%,rgba(139,26,26,.08),transparent 50%),radial-gradient(at 100% 100%,rgba(184,151,74,.05),transparent 50%)}
+a{color:var(--brass);text-decoration:none;border-bottom:1px dotted var(--brass-dim)}
+.wrap{max-width:920px;margin:0 auto;padding:60px 32px 120px}
+header{margin-bottom:48px;border-bottom:1px solid var(--ox-dim);padding-bottom:32px}
+header h1{font-size:42px;letter-spacing:6px;font-weight:400;margin-bottom:14px}
+header h1 .s{color:var(--ox);font-size:48px}
+header h1 .k{color:var(--brass)}
+header .sub{color:var(--cream-dim);letter-spacing:2px;font-size:13px;margin-bottom:18px}
+header .meta{display:flex;gap:18px;flex-wrap:wrap;font-size:11px}
+header .meta span{padding:3px 10px;border:1px solid var(--brass-dim);color:var(--brass)}
+section{margin-bottom:48px}
+h2{font-size:11px;letter-spacing:4px;color:var(--brass);text-transform:uppercase;margin-bottom:18px;border-bottom:1px solid var(--brass-dim);padding-bottom:6px}
+h3{font-size:14px;letter-spacing:2px;color:var(--cream);margin:24px 0 10px}
+p{margin-bottom:14px}.lead{font-size:18px}
+.hook{color:var(--cream-dim);font-style:italic;margin-bottom:32px;padding-left:18px;border-left:2px solid var(--brass)}
+ul{list-style:none}ul li{padding:4px 0;padding-left:20px;position:relative}ul li:before{content:"◊";position:absolute;left:0;color:var(--ox)}
+code,pre{font-family:inherit;background:var(--void-2);color:var(--brass);padding:2px 8px;border:1px solid var(--void-3)}
+pre{padding:14px 18px;margin:14px 0;overflow-x:auto;font-size:12px;line-height:1.6;border-left:2px solid var(--ox);color:var(--cream)}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:8px 12px;border:1px solid var(--void-3)}th{background:var(--void-2);color:var(--brass);letter-spacing:2px;font-size:11px;text-transform:uppercase}td.good{color:var(--green)}td.dim{color:var(--cream-dim)}
+.btn{display:inline-block;padding:12px 22px;background:var(--ox);color:#fff;letter-spacing:3px;font-size:12px;border:1px solid var(--ox);text-transform:uppercase}
+.btn.dim{background:var(--void-2);color:var(--cream)}
+.cta{margin:32px 0;display:flex;gap:14px;flex-wrap:wrap}
+.warn{background:rgba(139,26,26,0.1);border-left:3px solid var(--ox);padding:14px 18px;margin-bottom:18px;font-size:12px;color:var(--cream-dim)}
+.seal{margin-top:80px;text-align:center;color:var(--cream-dim);font-size:11px;letter-spacing:3px}.seal .s{color:var(--ox);font-size:18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+<h1><span class="s">◊</span> fallonion <span class="k">·κ=1</span></h1>
+<div class="sub">SOVEREIGN TOR HIDDEN SERVICE · FOR CENSORED REGIONS</div>
+<div class="meta"><span>TOR V3</span><span>HIDDEN SERVICE</span><span>CENSORSHIP-RESISTANT</span><span>OPT-IN ONLY</span><span>MIT</span></div>
+</header>
+
+<section>
+<p class="lead">If your customer is in China, Iran, Russia, or any other jurisdiction where the open internet is throttled or surveilled · fallonion gives them a .onion address that the regime can't easily block.</p>
+<p class="hook">"The estate already rides on top of the internet. fallonion adds the layer below: Tor's hidden services. Same content, same Ed25519 signatures, but reachable via Tor Browser when nothing else is."</p>
+</section>
+
+<section>
+<div class="warn">
+<strong>Honest scope:</strong> fallonion is optional. Most estate operators don't need it. It's specifically for the case where a customer/contact lives in a jurisdiction with active firewall censorship. If that's not your use case, the rest of the defensive stack already covers you.
+</div>
+</section>
+
+<section>
+<h2>Setup · 3 commands</h2>
+<pre><code>gh repo clone sjgant80-hub/fallonion
+cd fallonion
+bash setup.sh start       # installs tor + writes hidden-service torrc
+sudo tor -f /etc/tor/torrc.fallonion
+bash setup.sh address     # prints your .onion address</code></pre>
+
+<p>Then start a local server on port 8443 (e.g. via <a href="https://sjgant80-hub.github.io/fallcdn/">fallcdn</a> with caddy mode) serving your estate. Your .onion address mirrors that content via Tor.</p>
+</section>
+
+<section>
+<h2>What it does · what it doesn't</h2>
+<table>
+<thead><tr><th>Does</th><th>Doesn't</th></tr></thead>
+<tbody>
+<tr><td class="good">Gives you a .onion address for censored users</td><td class="dim">Anonymize you (the publisher)</td></tr>
+<tr><td class="good">Mirrors your clearnet content via Tor</td><td class="dim">Hide your laptop's IP from your ISP</td></tr>
+<tr><td class="good">Survives even when ISPs block the clearnet site</td><td class="dim">Replace fallmirror / fallcdn / fallnet</td></tr>
+<tr><td class="good">Pairs with fallshield for signed identity</td><td class="dim">Improve speed (Tor is slower)</td></tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>How it fits the stack</h2>
+<p>fallonion is the LAYER 4 of the defensive estate:</p>
+<ol style="margin-left:24px">
+  <li><strong>Layer 1 — Clearnet redundancy</strong>: GitHub Pages + Codeberg + GitLab + IPFS (via fallmirror)</li>
+  <li><strong>Layer 2 — Self-hosting</strong>: Your own laptop via Tailscale/Cloudflare (via fallcdn)</li>
+  <li><strong>Layer 3 — Peer mesh</strong>: Browser-to-browser between operators (via fallnet)</li>
+  <li><strong>Layer 4 — Onion routing</strong>: Tor hidden service · for jurisdictions where the above layers can't reach (this)</li>
+</ol>
+
+<p>Most users hit Layer 1. The ones who need Layer 4 are the ones who need it most.</p>
+</section>
+
+<section>
+<h2>Why this exists · the censorship-resistance defense</h2>
+<table>
+<thead><tr><th>Threat</th><th>fallonion response</th></tr></thead>
+<tbody>
+<tr><td class="dim">Great Firewall of China blocks ai-nativesolutions.com</td><td class="good">.onion still reachable via Tor Browser</td></tr>
+<tr><td class="dim">Iran throttles or blocks Cloudflare</td><td class="good">Tor exits routed through 8000+ relays in 90+ countries</td></tr>
+<tr><td class="dim">Russia outlaws Western SaaS</td><td class="good">Tor hidden service does not pass through Western SaaS</td></tr>
+<tr><td class="dim">A journalist needs your sovereign tool but is being watched</td><td class="good">.onion access leaves no DNS trail for their ISP</td></tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>The complete defensive stack (now complete)</h2>
+<ul>
+<li><a href="https://sjgant80-hub.github.io/fallvault/">fallvault</a> · encrypted laptop backup · prime 271</li>
+<li><a href="https://sjgant80-hub.github.io/fallcompass/">fallcompass</a> · 8-provider LLM cascade · prime 277</li>
+<li><a href="https://sjgant80-hub.github.io/fallmirror/">fallmirror</a> · multi-host repo mirroring · prime 281</li>
+<li><a href="https://sjgant80-hub.github.io/fallshield/">fallshield</a> · Ed25519 identity signing · prime 283</li>
+<li><a href="https://sjgant80-hub.github.io/fallescape/">fallescape</a> · 20-min emergency recovery · prime 293</li>
+<li><a href="https://sjgant80-hub.github.io/fallpay/">fallpay</a> · multi-rail signed receipts · prime 307</li>
+<li><a href="https://sjgant80-hub.github.io/fallcdn/">fallcdn</a> · serve from your own laptop · prime 311</li>
+<li><a href="https://sjgant80-hub.github.io/fallnet/">fallnet</a> · peer-to-peer mesh · prime 313</li>
+<li><strong>fallonion · Tor hidden service · prime 317</strong></li>
+</ul>
+<p>9 defensive products. Every threat vector covered.</p>
+</section>
+
+<section>
+<h2>License</h2>
+<p>MIT · part of <a href="https://www.ai-nativesolutions.com">AI Native Solutions</a> · <a href="https://github.com/sjgant80-hub/fallonion">source</a></p>
+</section>
+
+<div class="cta">
+  <a class="btn" href="https://github.com/sjgant80-hub/fallonion">VIEW ON GITHUB</a>
+  <a class="btn dim" href="https://www.ai-nativesolutions.com">FULL ESTATE</a>
+</div>
+
+<div class="seal"><span class="s">◊·κ=1</span> &nbsp; prime 317 &nbsp; v20.1 · phi=1.618 · kappa=0.618 &nbsp; the onion compounds</div>
+</div>
+</body>
+</html>
